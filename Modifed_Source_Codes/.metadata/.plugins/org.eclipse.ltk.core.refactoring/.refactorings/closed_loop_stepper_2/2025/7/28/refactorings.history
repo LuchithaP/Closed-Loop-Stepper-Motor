@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;closed_loop_stepper_2/28069_RAM_lnk.cmd&apos; to &apos;28069_FLASH_lnk.cmd&apos;" description="Rename resource &apos;28069_RAM_lnk.cmd&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="28069_RAM_lnk.cmd" name="28069_FLASH_lnk.cmd" stamp="1752174452511" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;closed_loop_stepper_2/src/1&apos; to &apos;1.c&apos;" description="Rename resource &apos;1&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/1" name="1.c" stamp="1752177911518" updateReferences="true"/>
+</session>

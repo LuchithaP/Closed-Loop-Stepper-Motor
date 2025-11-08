@@ -1,0 +1,22 @@
+#include "motor_control.h"
+
+// Main function
+void main(void) {
+    init_system();
+    init_i2c();
+    init_ina3221();
+    init_eqep();
+    init_pwm();
+
+    // Enable interrupts
+    EINT; // Global interrupts
+    ERTM; // Real-time mode
+
+    while (1) {
+        // Blink LED every 500ms
+        if (loop_count++ >= 450000) { // 450000 / 90 MHz = 500ms
+            toggle_led();
+            loop_count = 0;
+        }
+    }
+}

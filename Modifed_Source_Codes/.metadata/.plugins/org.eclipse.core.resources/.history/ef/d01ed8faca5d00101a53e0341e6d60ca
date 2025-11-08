@@ -1,0 +1,122 @@
+#include "motor_control.h"
+
+// System initialization
+void init_system(void) {
+    InitSysCtrl(); // Initialize system clock (90 MHz)
+    DINT; // Disable interrupts
+
+    InitPieCtrl();
+    IER = 0x0000; // Clear interrupt enable register
+    IFR = 0x0000; // Clear interrupt flag register
+
+    InitPieVectTable();
+    EALLOW;
+    PieVectTable.TINT0 = &timer0_isr; // Map Timer0 interrupt
+    EDIS;
+
+    // Configure LED (GPIO34)
+    EALLOW;
+    GpioCtrlRegs.GPBMUX1.bit.GPIO34 = 0; // GPIO function
+    GpioCtrlRegs.GPBDIR.bit.GPIO34 = 1; // Output
+    GpioDataRegs.GPBCLEAR.bit.GPIO34 = 1; // LED off
+    EDIS;
+
+    // Enable Timer0 interrupt
+    IER |= M_INT1;
+    PieCtrlRegs.PIEIER1.bit.INTx7 = 1; // Timer0 interrupt
+}
+
+// I2C initialization (J5: GPIO32/SDAA, GPIO33/SCLA)
+void init_i2c(void) {
+    EALLOW;
+    SysCtrlRegs.PCLKCR0.bit.I2CAENCLK = 1; // Enable I2C-A clock
+    GpioCtrlRegs.GPBPUD.bit.GPIO32 = 0; // Enable pull-up for SDA
+    GpioCtrlRegs.GPBPUD.bit.GPIO33 = 0; // Enable pull-up for SCL
+    GpioCtrlRegs.GPBMUX1.bit.GPIO32 = 2; // GPIO32 = SDAA
+    GpioCtrlRegs.GPBMUX1.bit.GPIO33 = 2; // GPIO33 = SCLA
+    I2caRegs.I2CPSC.all = 8; // Prescaler: 90 MHz / (8+1) = 10 MHz
+    I2caRegs.I2CCLKL = 12; // Low time for 400 kHz
+    I2caRegs.I2CCLKH = 12; // High time for 400 kHz
+    I2caRegs.I2CIER.all = 0x00; // Disable I2C interrupts
+    I2caRegs.I2CMDR.all = 0x0020; // Master, free-run
+    I2caRegs.I2CFFTX.all = 0x6000; // Enable TX FIFO
+    I2caRegs.I2CFFRX.all = 0x2040; // Enable RX FIFO
+    EDIS;
+}
+
+// Configure INA3221 module
+void init_ina3221(void) {
+    EALLOW;
+    I2caRegs.I2CSAR = INA3221_ADDR; // Set I2C slave address
+    I2caRegs.I2CCNT = 3; // 3 bytes: reg + 2-byte config
+    I2caRegs.I2CDXR = INA3221_CONFIG_REG; // Config register
+    I2caRegs.I2CDXR = 0x71; // Enable CH1 & CH2, continuous mode
+    I2caRegs.I2CDXR = 0x27; // 588 us conversion, 4-sample avg
+    I2caRegs.I2CMDR.all = 0x0620; // Master, TX, start
+    while (I2caRegs.I2CSTR.bit.BB == 1); // Wait for bus free
+    while (I2caRegs.I2CSTR.bit.XRDY == 0); // Wait for TX complete
+    EDIS;
+}
+
+// eQEP initialization
+void init_eqep(void) {
+    InitEQep1Gpio();
+    EALLOW;
+    EQep1Regs.QEPCTL.bit.QPEN = 1; // Enable eQEP
+    EQep1Regs.QDECCTL.bit.QSRC = 0; // Quadrature count mode
+    EQep1Regs.QPOSMAX = 200 * POLE_PAIRS - 1; // Max position count
+    EQep1Regs.QPOSINIT = 0; // Initial position
+    EQep1Regs.QEPCTL.bit.PCRM = 0; // Position reset on index
+    EQep1Regs.QEINT.bit.PCE = 1; // Position counter error interrupt
+    EQep1Regs.QCLR.bit.PCE = 1; // Clear position error
+    EDIS;
+}
+
+// PWM initialization
+void init_pwm(void) {
+    InitEPwm1Gpio();
+    InitEPwm2Gpio();
+    EALLOW;
+    EPwm1Regs.TBCTL.bit.CTRMODE = 3; // Up-down count
+    EPwm1Regs.TBPRD = PWM_PERIOD; // 10 kHz PWM
+    EPwm1Regs.CMPA.half.CMPA = 0; // Initial compare value
+    EPwm1Regs.AQCTLA.bit.CAU = 2; // Set on CMPA up
+    EPwm1Regs.AQCTLA.bit.CAD = 1; // Clear on CMPA down
+    EPwm1Regs.TBCTL.bit.PHSEN = 0; // Disable phaseCube
+    EPwm2Regs.TBCTL.bit.CTRMODE = 3;
+    EPwm2Regs.TBPRD = PWM_PERIOD;
+    EPwm2Regs.CMPA.half.CMPA = 0;
+    EPwm2Regs.AQCTLA.bit.CAU = 2;
+    EPwm2Regs.AQCTLA.bit.CAD = 1;
+    EPwm2Regs.TBCTL.bit.PHSEN = 0;
+
+    EPwm1Regs.ETSEL.bit.SOCAEN = 1; // Enable SOCA
+    EPwm1Regs.ETSEL.bit.SOCASEL = 1; // Trigger on period match
+    EPwm1Regs.ETPS.bit.SOCAPRD = 1; // Trigger every period
+    EDIS;
+
+    InitCpuTimers();
+    ConfigCpuTimer(&CpuTimer0, 90, 100); // 90 MHz, 100 us period (10 kHz)
+    CpuTimer0Regs.TCR.bit.TSS = 0; // Start timer
+}
+
+//dead time initialization
+void init_pwm_deadband(void) {
+    EALLOW; // Enable protected register access
+
+    // Configure Dead-Band for EPWM1 (EPWM1A and EPWM1B)
+    EPwm1Regs.DBCTL.bit.OUT_MODE = 3; // Enable Dead-Band for both RED and FED
+    EPwm1Regs.DBCTL.bit.POLSEL = 2;   // Active high complementary (AHC) mode
+    EPwm1Regs.DBCTL.bit.IN_MODE = 0;  // EPWMxA is source for both RED and FED
+    EPwm1Regs.DBRED.bit.DBRED = 8;    // Rising Edge Delay: ~80 ns (8 cycles at 90 MHz)
+    EPwm1Regs.DBFED.bit.DBFED = 8;    // Falling Edge Delay: ~80 ns (8 cycles at 90 MHz)
+
+    // Configure Dead-Band for EPWM2 (EPWM2A and EPWM2B)
+    EPwm2Regs.DBCTL.bit.OUT_MODE = 3; // Enable Dead-Band for both RED and FED
+    EPwm2Regs.DBCTL.bit.POLSEL = 2;   // Active high complementary (AHC) mode
+    EPwm2Regs.DBCTL.bit.IN_MODE = 0;  // EPWMxA is source for both RED and FED
+    EPwm2Regs.DBRED.bit.DBRED = 8;    // Rising Edge Delay: ~80 ns (8 cycles at 90 MHz)
+    EPwm2Regs.DBFED.bit.DBFED = 8;    // Falling Edge Delay: ~80 ns (8 cycles at 90 MHz)
+
+    EDIS; // Disable protected register access
+}

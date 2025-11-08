@@ -1,0 +1,103 @@
+
+**** Build of configuration Debug for project closed_loop_stepper_2 ****
+
+"C:\\ti\\ccs1281\\ccs\\utils\\bin\\gmake" -k -j 8 all -O 
+ 
+Building file: "../main.c"
+Invoking: C2000 Compiler
+"C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/bin/cl2000" -v28 -ml -mt --cla_support=cla0 --float_support=fpu32 --vcu_support=vcu0 --include_path="C:/Users/Luchitha/workspace_v12/closed_loop_stepper_2" --include_path="C:/Users/Luchitha/workspace_v12/closed_loop_stepper_2/include" --include_path="C:/Users/Luchitha/workspace_v12/closed_loop_stepper_2/src" --include_path="C:/Users/Luchitha/workspace_v12/closed_loop_stepper_2" --include_path="C:/ti/c2000/C2000Ware_5_00_00_00/device_support/f2806x/headers/include" --include_path="C:/ti/c2000/C2000Ware_5_00_00_00/libraries/math/IQmath/c28/include" --include_path="C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include" --define=FLASH --define=_DEBUG --define=cla0 --define=fpu32 --define=vcu0 -g --diag_warning=225 --diag_wrap=off --display_error_number --abi=coffabi --preproc_with_compile --preproc_dependency="main.d_raw"  "../main.c"
+Finished building: "../main.c"
+ 
+Building file: "../src/current_sensing.c"
+Invoking: C2000 Compiler
+"C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/bin/cl2000" -v28 -ml -mt --cla_support=cla0 --float_support=fpu32 --vcu_support=vcu0 --include_path="C:/Users/Luchitha/workspace_v12/closed_loop_stepper_2" --include_path="C:/Users/Luchitha/workspace_v12/closed_loop_stepper_2/include" --include_path="C:/Users/Luchitha/workspace_v12/closed_loop_stepper_2/src" --include_path="C:/Users/Luchitha/workspace_v12/closed_loop_stepper_2" --include_path="C:/ti/c2000/C2000Ware_5_00_00_00/device_support/f2806x/headers/include" --include_path="C:/ti/c2000/C2000Ware_5_00_00_00/libraries/math/IQmath/c28/include" --include_path="C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include" --define=FLASH --define=_DEBUG --define=cla0 --define=fpu32 --define=vcu0 -g --diag_warning=225 --diag_wrap=off --display_error_number --abi=coffabi --preproc_with_compile --preproc_dependency="src/current_sensing.d_raw" --obj_directory="src"  "../src/current_sensing.c"
+Finished building: "../src/current_sensing.c"
+ 
+Building file: "../src/encoder_interface.c"
+Invoking: C2000 Compiler
+"C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/bin/cl2000" -v28 -ml -mt --cla_support=cla0 --float_support=fpu32 --vcu_support=vcu0 --include_path="C:/Users/Luchitha/workspace_v12/closed_loop_stepper_2" --include_path="C:/Users/Luchitha/workspace_v12/closed_loop_stepper_2/include" --include_path="C:/Users/Luchitha/workspace_v12/closed_loop_stepper_2/src" --include_path="C:/Users/Luchitha/workspace_v12/closed_loop_stepper_2" --include_path="C:/ti/c2000/C2000Ware_5_00_00_00/device_support/f2806x/headers/include" --include_path="C:/ti/c2000/C2000Ware_5_00_00_00/libraries/math/IQmath/c28/include" --include_path="C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include" --define=FLASH --define=_DEBUG --define=cla0 --define=fpu32 --define=vcu0 -g --diag_warning=225 --diag_wrap=off --display_error_number --abi=coffabi --preproc_with_compile --preproc_dependency="src/encoder_interface.d_raw" --obj_directory="src"  "../src/encoder_interface.c"
+Finished building: "../src/encoder_interface.c"
+ 
+Building file: "../src/interrupts.c"
+Invoking: C2000 Compiler
+"C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/bin/cl2000" -v28 -ml -mt --cla_support=cla0 --float_support=fpu32 --vcu_support=vcu0 --include_path="C:/Users/Luchitha/workspace_v12/closed_loop_stepper_2" --include_path="C:/Users/Luchitha/workspace_v12/closed_loop_stepper_2/include" --include_path="C:/Users/Luchitha/workspace_v12/closed_loop_stepper_2/src" --include_path="C:/Users/Luchitha/workspace_v12/closed_loop_stepper_2" --include_path="C:/ti/c2000/C2000Ware_5_00_00_00/device_support/f2806x/headers/include" --include_path="C:/ti/c2000/C2000Ware_5_00_00_00/libraries/math/IQmath/c28/include" --include_path="C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include" --define=FLASH --define=_DEBUG --define=cla0 --define=fpu32 --define=vcu0 -g --diag_warning=225 --diag_wrap=off --display_error_number --abi=coffabi --preproc_with_compile --preproc_dependency="src/interrupts.d_raw" --obj_directory="src"  "../src/interrupts.c"
+Finished building: "../src/interrupts.c"
+ 
+Building file: "../src/motor_variables.c"
+Invoking: C2000 Compiler
+"C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/bin/cl2000" -v28 -ml -mt --cla_support=cla0 --float_support=fpu32 --vcu_support=vcu0 --include_path="C:/Users/Luchitha/workspace_v12/closed_loop_stepper_2" --include_path="C:/Users/Luchitha/workspace_v12/closed_loop_stepper_2/include" --include_path="C:/Users/Luchitha/workspace_v12/closed_loop_stepper_2/src" --include_path="C:/Users/Luchitha/workspace_v12/closed_loop_stepper_2" --include_path="C:/ti/c2000/C2000Ware_5_00_00_00/device_support/f2806x/headers/include" --include_path="C:/ti/c2000/C2000Ware_5_00_00_00/libraries/math/IQmath/c28/include" --include_path="C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include" --define=FLASH --define=_DEBUG --define=cla0 --define=fpu32 --define=vcu0 -g --diag_warning=225 --diag_wrap=off --display_error_number --abi=coffabi --preproc_with_compile --preproc_dependency="src/motor_variables.d_raw" --obj_directory="src"  "../src/motor_variables.c"
+"../src/motor_variables.c", line 18: warning #179-D: variable "last_pos" was declared but never referenced
+Finished building: "../src/motor_variables.c"
+ 
+Building file: "../src/pi_controllers.c"
+Invoking: C2000 Compiler
+"C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/bin/cl2000" -v28 -ml -mt --cla_support=cla0 --float_support=fpu32 --vcu_support=vcu0 --include_path="C:/Users/Luchitha/workspace_v12/closed_loop_stepper_2" --include_path="C:/Users/Luchitha/workspace_v12/closed_loop_stepper_2/include" --include_path="C:/Users/Luchitha/workspace_v12/closed_loop_stepper_2/src" --include_path="C:/Users/Luchitha/workspace_v12/closed_loop_stepper_2" --include_path="C:/ti/c2000/C2000Ware_5_00_00_00/device_support/f2806x/headers/include" --include_path="C:/ti/c2000/C2000Ware_5_00_00_00/libraries/math/IQmath/c28/include" --include_path="C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include" --define=FLASH --define=_DEBUG --define=cla0 --define=fpu32 --define=vcu0 -g --diag_warning=225 --diag_wrap=off --display_error_number --abi=coffabi --preproc_with_compile --preproc_dependency="src/pi_controllers.d_raw" --obj_directory="src"  "../src/pi_controllers.c"
+Finished building: "../src/pi_controllers.c"
+ 
+Building file: "../src/pwm_control.c"
+Invoking: C2000 Compiler
+"C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/bin/cl2000" -v28 -ml -mt --cla_support=cla0 --float_support=fpu32 --vcu_support=vcu0 --include_path="C:/Users/Luchitha/workspace_v12/closed_loop_stepper_2" --include_path="C:/Users/Luchitha/workspace_v12/closed_loop_stepper_2/include" --include_path="C:/Users/Luchitha/workspace_v12/closed_loop_stepper_2/src" --include_path="C:/Users/Luchitha/workspace_v12/closed_loop_stepper_2" --include_path="C:/ti/c2000/C2000Ware_5_00_00_00/device_support/f2806x/headers/include" --include_path="C:/ti/c2000/C2000Ware_5_00_00_00/libraries/math/IQmath/c28/include" --include_path="C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include" --define=FLASH --define=_DEBUG --define=cla0 --define=fpu32 --define=vcu0 -g --diag_warning=225 --diag_wrap=off --display_error_number --abi=coffabi --preproc_with_compile --preproc_dependency="src/pwm_control.d_raw" --obj_directory="src"  "../src/pwm_control.c"
+"../src/pwm_control.c", line 11: warning #175-D: floating-point value does not fit in required integral type
+"../src/pwm_control.c", line 11: warning #175-D: floating-point value does not fit in required integral type
+"../src/pwm_control.c", line 16: warning #175-D: floating-point value does not fit in required integral type
+"../src/pwm_control.c", line 16: warning #175-D: floating-point value does not fit in required integral type
+Finished building: "../src/pwm_control.c"
+ 
+Building file: "../src/transforms.c"
+Invoking: C2000 Compiler
+"C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/bin/cl2000" -v28 -ml -mt --cla_support=cla0 --float_support=fpu32 --vcu_support=vcu0 --include_path="C:/Users/Luchitha/workspace_v12/closed_loop_stepper_2" --include_path="C:/Users/Luchitha/workspace_v12/closed_loop_stepper_2/include" --include_path="C:/Users/Luchitha/workspace_v12/closed_loop_stepper_2/src" --include_path="C:/Users/Luchitha/workspace_v12/closed_loop_stepper_2" --include_path="C:/ti/c2000/C2000Ware_5_00_00_00/device_support/f2806x/headers/include" --include_path="C:/ti/c2000/C2000Ware_5_00_00_00/libraries/math/IQmath/c28/include" --include_path="C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include" --define=FLASH --define=_DEBUG --define=cla0 --define=fpu32 --define=vcu0 -g --diag_warning=225 --diag_wrap=off --display_error_number --abi=coffabi --preproc_with_compile --preproc_dependency="src/transforms.d_raw" --obj_directory="src"  "../src/transforms.c"
+Finished building: "../src/transforms.c"
+ 
+Building file: "../src/system_init.c"
+Invoking: C2000 Compiler
+"C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/bin/cl2000" -v28 -ml -mt --cla_support=cla0 --float_support=fpu32 --vcu_support=vcu0 --include_path="C:/Users/Luchitha/workspace_v12/closed_loop_stepper_2" --include_path="C:/Users/Luchitha/workspace_v12/closed_loop_stepper_2/include" --include_path="C:/Users/Luchitha/workspace_v12/closed_loop_stepper_2/src" --include_path="C:/Users/Luchitha/workspace_v12/closed_loop_stepper_2" --include_path="C:/ti/c2000/C2000Ware_5_00_00_00/device_support/f2806x/headers/include" --include_path="C:/ti/c2000/C2000Ware_5_00_00_00/libraries/math/IQmath/c28/include" --include_path="C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include" --define=FLASH --define=_DEBUG --define=cla0 --define=fpu32 --define=vcu0 -g --diag_warning=225 --diag_wrap=off --display_error_number --abi=coffabi --preproc_with_compile --preproc_dependency="src/system_init.d_raw" --obj_directory="src"  "../src/system_init.c"
+Finished building: "../src/system_init.c"
+ 
+Building file: "../src/utilities.c"
+Invoking: C2000 Compiler
+"C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/bin/cl2000" -v28 -ml -mt --cla_support=cla0 --float_support=fpu32 --vcu_support=vcu0 --include_path="C:/Users/Luchitha/workspace_v12/closed_loop_stepper_2" --include_path="C:/Users/Luchitha/workspace_v12/closed_loop_stepper_2/include" --include_path="C:/Users/Luchitha/workspace_v12/closed_loop_stepper_2/src" --include_path="C:/Users/Luchitha/workspace_v12/closed_loop_stepper_2" --include_path="C:/ti/c2000/C2000Ware_5_00_00_00/device_support/f2806x/headers/include" --include_path="C:/ti/c2000/C2000Ware_5_00_00_00/libraries/math/IQmath/c28/include" --include_path="C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include" --define=FLASH --define=_DEBUG --define=cla0 --define=fpu32 --define=vcu0 -g --diag_warning=225 --diag_wrap=off --display_error_number --abi=coffabi --preproc_with_compile --preproc_dependency="src/utilities.d_raw" --obj_directory="src"  "../src/utilities.c"
+Finished building: "../src/utilities.c"
+ 
+Building target: "closed_loop_stepper_2.out"
+Invoking: C2000 Linker
+"C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/bin/cl2000" -v28 -ml -mt --cla_support=cla0 --float_support=fpu32 --vcu_support=vcu0 --define=FLASH --define=_DEBUG --define=cla0 --define=fpu32 --define=vcu0 -g --diag_warning=225 --diag_wrap=off --display_error_number --abi=coffabi -z -m"closed_loop_stepper_2.map" --stack_size=0x300 --warn_sections -i"C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/lib" -i"C:/Users/Luchitha/workspace_v12/closed_loop_stepper_2/28069_FLASH_lnk.cmd" -i"C:/Users/Luchitha/workspace_v12/closed_loop_stepper_2/F2806x_Headers_nonBIOS.cmd" -i"C:/ti/c2000/C2000Ware_5_00_00_00/libraries/math/IQmath/c28/lib" -i"C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/lib" -i"C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include" --reread_libs --diag_wrap=off --display_error_number --xml_link_info="closed_loop_stepper_2_linkInfo.xml" --rom_model -o "closed_loop_stepper_2.out" "./main.obj" "./src/current_sensing.obj" "./src/encoder_interface.obj" "./src/interrupts.obj" "./src/motor_variables.obj" "./src/pi_controllers.obj" "./src/pwm_control.obj" "./src/system_init.obj" "./src/transforms.obj" "./src/utilities.obj" "../28069_FLASH_lnk.cmd" "../F2806x_Headers_nonBIOS.cmd"  -llibc.a -lIQmath.lib 
+<Linking>
+error #10008-D: cannot find file "IQmath.lib"
+ 
+ undefined         first referenced           
+  symbol               in file                
+ ---------         ----------------           
+ _ConfigCpuTimer   ./src/system_init.obj      
+ _CpuTimer0        ./src/system_init.obj      
+ _CpuTimer0Regs    ./src/interrupts.obj       
+ _EPwm1Regs        ./src/pwm_control.obj      
+ _EPwm2Regs        ./src/pwm_control.obj      
+ _EQep1Regs        ./src/encoder_interface.obj
+ _GpioCtrlRegs     ./src/system_init.obj      
+ _GpioDataRegs     ./src/system_init.obj      
+ _I2caRegs         ./src/current_sensing.obj  
+ _InitCpuTimers    ./src/system_init.obj      
+ _InitEPwm1Gpio    ./src/system_init.obj      
+ _InitEPwm2Gpio    ./src/system_init.obj      
+ _InitEQep1Gpio    ./src/system_init.obj      
+ _InitPieCtrl      ./src/system_init.obj      
+ _InitPieVectTable ./src/system_init.obj      
+ _InitSysCtrl      ./src/system_init.obj      
+ _PieCtrlRegs      ./src/interrupts.obj       
+ _PieVectTable     ./src/system_init.obj      
+ _SysCtrlRegs      ./src/system_init.obj      
+ __IQ24cos         ./src/transforms.obj       
+ __IQ24sin         ./src/transforms.obj       
+ __IQ24toF         ./src/pwm_control.obj      
+ _last_pos         ./src/encoder_interface.obj
+ 
+error #10234-D: unresolved symbols remain
+error #10010: errors encountered during linking; "closed_loop_stepper_2.out" not built
+ 
+>> Compilation failure
+makefile:148: recipe for target 'closed_loop_stepper_2.out' failed
+gmake[1]: *** [closed_loop_stepper_2.out] Error 1
+makefile:144: recipe for target 'all' failed
+gmake: *** [all] Error 2
+
+**** Build Finished ****

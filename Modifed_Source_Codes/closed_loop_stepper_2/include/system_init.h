@@ -1,0 +1,11 @@
+#ifndef SYSTEM_INIT_H
+#define SYSTEM_INIT_H
+
+// Function prototypes
+void init_system(void);
+void init_adc(void)
+void init_eqep(void);
+void init_pwm(void);
+void init_pwm_deadband(void);
+
+#endif

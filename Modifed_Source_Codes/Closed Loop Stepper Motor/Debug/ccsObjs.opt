@@ -1,0 +1,15 @@
+"./main.obj"
+"./src/current_sensing.obj"
+"./src/encoder_interface.obj"
+"./src/interrupts.obj"
+"./src/motor_variables.obj"
+"./src/pi_controllers.obj"
+"./src/pwm_control.obj"
+"./src/system_init.obj"
+"./src/transforms.obj"
+"./src/utilities.obj"
+"../28069_RAM_lnk.cmd"
+"../F2806x_Headers_nonBIOS.cmd"
+-llibc.a
+-lIQmath.lib
+-lF2806x_Headers_nonBIOS.cmd
